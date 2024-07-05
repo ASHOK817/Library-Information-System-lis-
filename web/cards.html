@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin-top: 30px;
+        }
+
+        .container {
+            background-color: pink;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: pink;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #007bff;
+        }
+
+        p {
+            color: #6c757d;
+        }
+
+        .card {
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: whitesmoke;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease; /* Add transition for a smooth effect */
+        }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Change box-shadow on hover */
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin-bottom for space */
+        }
+
+
+        .search-input {
+            padding: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .search-icon {
+            color: #6c757d;
+            cursor: pointer;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Add responsive search bar with category dropdown -->
+        <div class="row search-bar">
+            <div class="col-md-7">
+                <form class="form-inline">
+                    <div class="input-group">
+                        <!-- Category dropdown -->
+                        <select class="form-control" id="categoryDropdown" onchange="searchBooks()">
+                            <option value="">select a category</option>
+                            <option value="kids">kids</option>
+                            <option value="undergraduate">UnderGraduate</option>
+                             <option value="graduate">Graduate</option>
+                              <option value="PG scholars">PG scholars</option>
+                            <!-- Add more options based on your categories -->
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Search input -->
+                        <input class="form-control search-input" type="search" placeholder="Search"
+                            aria-label="Search" id="searchInput">
+                        <!-- Search icon -->
+                        <div class="input-group-append">
+                            <span class="input-group-text search-icon" onclick="searchBooks()">&#128269;</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Display cards -->
+        <div id="cardsContainer" class="row justify-content-around"></div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (needed for some Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for handling book search -->
+    <script>
+        // Fetch book data from the servlet
+        fetch('BookServlet')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cardsContainer').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        // Function to handle book search
+        function searchBooks() {
+            var searchTerm = document.getElementById('searchInput').value;
+            var category = document.getElementById('categoryDropdown').value;
+
+            // Fetch book data with search term and category from the servlet
+            fetch('BookServlet?search=' + searchTerm + '&category=' + category)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cardsContainer').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        function searchBooksByCategory(category){
+            fetch('BookServlet?category='+category)
+                    .then(response=>response.text())
+                    .then(data=>{
+                        document.getElementById('cardsContainer').innerHTML=data;
+            })
+                    .catch(error=>console.error('Error fetchong data: ',error))
+        }
+        searchBooksByCategory('');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+.container-big-1 a{
+	color:white;
+}
+.container-big-2{
+    background:radial-gradient(rgba(0,0,0,0),rgba(212, 222, 243, 0.7),rgba(103, 114, 113, 0.5),rgba(76, 82, 92, 0.9));
+    width: 100%;
+
+}
+.quiz-header{
+    box-shadow: inset 0 0 0px rgb(53, 221, 221),0 0 0px rgba(214, 100, 100, 0.9);
+    border-radius: 20px 20px 0px 0px;
+}
+
+#al8{
+	display: none;
+
+}
+#al2,#al3,#al4,#al5,#al6,#al7,#al8,#al9,#al10,#al11{
+    display: none;
+}
+
+.quiz-container{
+    border-radius:20px ;
+	border: 2px solid blue;
+
+}
+.qa-set h4{
+	margin: 0 0 15px;
+	font-size: 20px;
+}
+.qa-ans-row{
+
+	position: relative;
+	margin-bottom: 10px;
+}
+.qa-ans-row input{
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	cursor: pointer;
+
+}
+.qa-ans-row span{
+	display: block;
+	padding: 8px 15px;
+	background-color: #bad0c9;
+	border-radius: 15px;
+	transition: all 0.3s ease-out;
+}
+.qa-ans-row:hover span{
+
+	background-color: #9ab5ac;
+}
+.qa-ans-row input:checked + span{
+	background-color: #f93c3c;
+}
+.qa-ans-row input[valid]:checked + span{
+	background-color: green;
+	color: #fff;
+}
+#countdown{
+    background-color: black;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#btn2{
+	display:none;
+}
+
+#congratulations{
+	color: rgb(6, 145, 6);
+}
+
+.footer{
+	background-color:#65a1ac;
+	backdrop-filter: 15px;
+	background-position:center;
+	background-attachment:fixed;
+	 padding: 20px;
+	 box-shadow: #141212;
+}
+.footer .box-container{
+	display:flex;
+   justify-content: space-around;
+   padding-top: 20px;
+   grid-template-columns:repeat(auto-fit,minmax(25rem,1fr));
+
+}
+	.footer .box-container h3{
+		color:white;
+		font-size:1rem;
+		padding-bottom:1rem;
+}
+  .footer .box-container a{
+	   color:var(--light-white);
+	   font-size:1rem;
+	   padding-bottom:1rem;
+	   display:block;
+	   text-decoration:none;
+}
+.footer .box-container a i{
+	 color:#e4dee7;
+	  padding-right:.5rem;
+	   text-decoration:none;
+}
+
+.footer .credits{
+		 display:flex;
+		 justify-content:center;
+		  text-align:center;
+		  border-top:.1rem solid white;
+		  font-size:1rem;
+		  padding-top:.5rem;
+		  color:var(--white);
+	}
+.footer .credits span{
+	  color:white;
+ } 
+ 
+ .f{
+ display:flex;
+ background:fixed;
+}
+  /* Center the text between the vertical lines */
+  .navbar-nav .nav-item {
+	display: flex;
+	align-items: center;
+
+   
+	
+  }
+
+  /* Add a border to the right of each navbar link */
+  .navbar-nav .nav-item:not(:last-child) {
+	border-right: 3px solid white;
+  }
+
+  /* Add some padding to the navbar to reduce extra space */
+  .navbar {
+	padding: 0rem 1rem;
+	background-color: rgb(16, 106, 224);
+	margin-left: 20px;
+	margin-right: 20px;
+	
+  }
+  
+  /* Dropdown Button */
+.dropbtn {
+
+background: transparent;
+padding: 16px;
+font-size: 16px;
+border: none;
+color: white;
+}
+
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+display: none;
+position: absolute;
+
+min-width: 160px;
+
+z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+  .custom-margin-top {
+	margin-top: 20px; /* Increase the margin size as needed */
+	margin-bottom: 20px;
+  }
+  
+
+  .custom-margin-bottom {
+	margin-bottom: 20px; /* Increase the bottom margin size as needed */
+  }
+

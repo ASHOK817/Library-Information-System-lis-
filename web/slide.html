@@ -1,0 +1,148 @@
+
+
+          .g{
+                
+                width: 900px;
+                display: flex;
+                overflow-x: scroll;
+            }
+            .g div{
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-gap:20px;
+                padding: 10px;
+                flex: none;
+               
+            }
+            .g div img{
+                width: 100%;
+                filter:grayscale(0);
+                transition: transform 0.5s;
+            }
+            .g::-webkit-scrollbar{
+                display: none;
+            }
+            .gw{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 10% auto;
+                background-color: darkslategray;
+            }
+            #backbtn,#nextbtn{
+                width: 50px;
+                cursor: pointer;
+                margin: 40px;
+                
+            }
+            .g div img:hover{
+                filter:grayscale(0);
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+
+
+
+
+
+
+<!--HTML-->
+<section>
+  <center><h1 style="color: azure;">Popular Books</h1></center>
+
+  <div class="gw">
+    <img src="prev.png" id="backbtn" class="ic">
+    <div class="g">
+    <div>
+        <span><img src="bb.jpg"></span>
+        <span><img src="3.jpg"></span>
+        <span><img src="bb.jpg"></span>
+    </div>
+    <div>
+        <span><img src="3.jpg"></span>
+        <span><img src="cc.jpg"></span>
+        <span><img src="3.jpg"></span>
+    </div>
+    <div>
+      <span><img src="3.jpg"></span>
+      <span><img src="cc.jpg"></span>
+      <span><img src="3.jpg"></span>
+  </div>
+  <div>
+    <span><img src="3.jpg"></span>
+    <span><img src="cc.jpg"></span>
+    <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+<div>
+  <span><img src="3.jpg"></span>
+  <span><img src="cc.jpg"></span>
+  <span><img src="3.jpg"></span>
+</div>
+</div>
+    <img src="next.png" id="nextbtn" class="ic">
+</div>
+
+
+</section>
+
+
+
+<!--Script-->
+
+
+  <script>
+              let scroll=document.querySelector(".g");
+              let backbtn=document.getElementById("backbtn");
+              let nextbtn=document.getElementById("nextbtn");
+              
+              scroll.addEventListener("wheel",e=>{
+                  e.preventDefault();
+                  scroll.scrollLeft+=e.deltaY;
+              });
+              
+              backbtn.addEventListener("click",()=>{
+                  scroll. style.scrollBehavior="smooth";
+                  scroll.scrollLeft-=900;
+              });
+              
+              nextbtn.addEventListener("click",()=>{
+                  scroll.style.scrollBehavior="smooth";
+                  scroll.scrollLeft+=900;
+              });
+          </script>
+
+
+
+
+
